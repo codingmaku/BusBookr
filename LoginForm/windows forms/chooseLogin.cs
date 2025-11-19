@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LoginForm.services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace LoginForm
         public chooseLogin()
         {
             InitializeComponent();
+            MongoDbServices.TestConnection();
         }
 
         private void btnLoginUser_Click(object sender, EventArgs e)
@@ -32,5 +34,12 @@ namespace LoginForm
             frmAdminLogin formAdminLogin = new frmAdminLogin();
             formAdminLogin.Show();
         }
+
+        private void chooseLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

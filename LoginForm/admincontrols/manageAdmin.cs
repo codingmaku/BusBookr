@@ -58,8 +58,8 @@ namespace LoginForm.admincontrols
             bool response = await MongoDbServices.InsertAdminAccountAsync(
                 fullName_admin.Text,
                 email_admin.Text,
-                roles_admin.Text,
                 password_admin.Text,
+                roles_admin.Text,
                 status_admin.Text);
 
             if (response)

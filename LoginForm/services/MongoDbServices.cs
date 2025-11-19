@@ -1,5 +1,6 @@
 ﻿using LoginForm.models;
 using LoginForm.usercontrols;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,20 @@ namespace LoginForm.services
         public static IMongoCollection<UserAccountModel> UserAccount =>
     _database.GetCollection<UserAccountModel>("UserAccounts");
 
+        public static void TestConnection()
+        {
+            try
+            {
+                var collections = MongoDbServices.AdminAccount.Database
+                    .ListCollectionNames().ToList();
 
+                MessageBox.Show("Connected! Collections: " + string.Join(", ", collections));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed: " + ex.Message);
+            }
+        }
 
         public static async Task<bool> InsertBusBookingAsync(string id, string fullname, string email, string phone, string bus, string destination, int price, string departuredate, string returndate)
         {
