@@ -26,11 +26,11 @@ namespace LoginForm.services
         public static IMongoCollection<AdminAccountModel> AdminAccount =>
             _database.GetCollection<AdminAccountModel>("AdminAccounts");
         public static IMongoCollection<BusBookingModel> BusBooking =>
-    _database.GetCollection<BusBookingModel>("BusBookings");
-        public static IMongoCollection<BusRouteModel> BusRoute =>
-    _database.GetCollection<BusRouteModel>("BusRoutes");
-        public static IMongoCollection<UserAccountModel> UserAccount =>
-    _database.GetCollection<UserAccountModel>("UserAccounts");
+            _database.GetCollection<BusBookingModel>("BusBookings");
+                public static IMongoCollection<BusRouteModel> BusRoute =>
+            _database.GetCollection<BusRouteModel>("BusRoutes");
+                public static IMongoCollection<UserAccountModel> UserAccount =>
+            _database.GetCollection<UserAccountModel>("UserAccounts");
 
         public static async Task<bool> LoginBusBookrAccountAsync(string user, string email, string password)
         {
@@ -70,6 +70,11 @@ namespace LoginForm.services
                 if (admin.Password != password)
                 {
                     MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (admin.Status != "Active")
+                {
+                    MessageBox.Show("Account is inactive. Please contact support.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
 

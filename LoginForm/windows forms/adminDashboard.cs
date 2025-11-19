@@ -18,7 +18,6 @@ namespace LoginForm
         admincontrols.adminDash adDashboard = new admincontrols.adminDash();     
         admincontrols.manageBooking mngBooking = new admincontrols.manageBooking();
         admincontrols.addDestination addDstn = new admincontrols.addDestination();
-        admincontrols.viewBooking viewBook = new admincontrols.viewBooking();
         admincontrols.manageAdmin mngAdmin = new admincontrols.manageAdmin();
         
         public adminDashboard()

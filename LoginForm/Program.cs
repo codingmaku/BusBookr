@@ -21,7 +21,6 @@ namespace LoginForm
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new chooseLogin());
 
-           
         }
 
         
