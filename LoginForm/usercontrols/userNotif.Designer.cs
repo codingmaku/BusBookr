@@ -33,20 +33,20 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.notif_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
+            this.notif_panel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.notif_flowlayout);
+            this.panel1.Controls.Add(this.notif_panel);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(412, 488);
             this.panel1.TabIndex = 0;
@@ -71,7 +71,7 @@
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pictureBox2.Location = new System.Drawing.Point(367, 2);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(44, 41);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -89,19 +89,19 @@
             this.label5.TabIndex = 122;
             this.label5.Text = "Notifications";
             // 
-            // notif_flowlayout
+            // notif_panel
             // 
-            this.notif_flowlayout.Location = new System.Drawing.Point(5, 54);
-            this.notif_flowlayout.Name = "notif_flowlayout";
-            this.notif_flowlayout.Size = new System.Drawing.Size(404, 409);
-            this.notif_flowlayout.TabIndex = 129;
+            this.notif_panel.Location = new System.Drawing.Point(3, 66);
+            this.notif_panel.Name = "notif_panel";
+            this.notif_panel.Size = new System.Drawing.Size(406, 406);
+            this.notif_panel.TabIndex = 129;
             // 
             // userNotif
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "userNotif";
             this.Size = new System.Drawing.Size(412, 488);
             this.panel1.ResumeLayout(false);
@@ -117,6 +117,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.FlowLayoutPanel notif_flowlayout;
+        private System.Windows.Forms.Panel notif_panel;
     }
 }
