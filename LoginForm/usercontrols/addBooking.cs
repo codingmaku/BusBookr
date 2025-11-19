@@ -1,5 +1,6 @@
 ﻿using Amazon.Runtime.Internal;
 using LoginForm.services;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace LoginForm.usercontrols
         public addBooking()
         {
             InitializeComponent();
+            PutPredefinedData();
         }
 
         private void btnViewBus_Click(object sender, EventArgs e)
@@ -80,6 +82,31 @@ namespace LoginForm.usercontrols
 
 
 
+        }
+
+        private async void PutPredefinedData()
+        {
+            try
+            {
+                var user = await MongoDbServices.UserAccount
+                    .Find(x => x.Id == Session.UserId)
+                    .FirstOrDefaultAsync();
+
+                if (user != null)
+                {
+                    fullName_user.Text = user.FullName;
+                    phoneNumber_user.Text = user.Number;
+                    email_user.Text = user.Email;
+                }
+                else
+                {
+                    MessageBox.Show("User profile not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Error occurred while loading user profile: {e.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

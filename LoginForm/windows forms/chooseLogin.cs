@@ -16,7 +16,6 @@ namespace LoginForm
         public chooseLogin()
         {
             InitializeComponent();
-            MongoDbServices.TestConnection();
         }
 
         private void btnLoginUser_Click(object sender, EventArgs e)

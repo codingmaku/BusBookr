@@ -32,19 +32,54 @@ namespace LoginForm.services
         public static IMongoCollection<UserAccountModel> UserAccount =>
     _database.GetCollection<UserAccountModel>("UserAccounts");
 
-        public static void TestConnection()
+        public static async Task<bool> LoginBusBookrAccountAsync(string user, string email, string password)
         {
-            try
+            if (user == "booker")
             {
-                var collections = MongoDbServices.AdminAccount.Database
-                    .ListCollectionNames().ToList();
+                var booker = await UserAccount
+                    .Find(x => x.Email == email)
+                    .FirstOrDefaultAsync();
+                if (booker == null)
+                {
+                    MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
 
-                MessageBox.Show("Connected! Collections: " + string.Join(", ", collections));
+                if (booker.Password != password)
+                {
+                    MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                Session.UserId = booker.Id;
+                Session.UserEmail = booker.Email;
+
+                return true;
             }
-            catch (Exception ex)
+            else if (user == "admin")
             {
-                MessageBox.Show("Failed: " + ex.Message);
+                var admin = await AdminAccount
+                    .Find(x => x.Email == email)
+                    .FirstOrDefaultAsync();
+                if (admin == null)
+                {
+                    MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                if (admin.Password != password)
+                {
+                    MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                Session.UserId = admin.Id;
+                Session.UserEmail = admin.Email;
+
+                return true;
             }
+            return false;
+
         }
 
         public static async Task<bool> InsertBusBookingAsync(string id, string fullname, string email, string phone, string bus, string destination, int price, string departuredate, string returndate)
@@ -142,54 +177,9 @@ namespace LoginForm.services
                 return false;
             }
         }
-        public static async Task<bool> LoginBusBookrAccountAsync(string user, string email, string password)
-        {
-            if (user == "booker")
-            {
-                var booker = await UserAccount
-                    .Find(x => x.Email == email)
-                    .FirstOrDefaultAsync();
-                if (booker == null)
-                {
-                    MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-
-                if (booker.Password != password)
-                {
-                    MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-
-                return true;
-            }
-            else if (user == "admin")
-                {
-                var admin = await AdminAccount
-                    .Find(x => x.Email == email)
-                    .FirstOrDefaultAsync();
-                if (admin == null)
-                {
-                    MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-
-                if (admin.Password != password)
-                {
-                    MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-
-                return true;
-            }
-            return false;
-
-        }
-    } 
-
-
-
         
-    }
+
+    } 
+}
 
 
