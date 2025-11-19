@@ -31,6 +31,8 @@ namespace LoginForm.services
             _database.GetCollection<BusRouteModel>("BusRoutes");
                 public static IMongoCollection<UserAccountModel> UserAccount =>
             _database.GetCollection<UserAccountModel>("UserAccounts");
+        public static IMongoCollection<UserNotificationModel> UserNotification =>
+        _database.GetCollection<UserNotificationModel>("UserNotifications");
 
         public static async Task<bool> LoginBusBookrAccountAsync(string user, string email, string password)
         {

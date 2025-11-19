@@ -24,6 +24,5 @@ namespace LoginForm.models
         public string Departure { get; set; }
         public string Return { get; set; }
         public string Status { get; set; } = "Pending";
-        public string Remarks { get; set; } = null ;
     }
 }

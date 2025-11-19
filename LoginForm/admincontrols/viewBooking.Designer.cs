@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(viewBooking));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel = new System.Windows.Forms.Panel();
             this.btnReturn = new System.Windows.Forms.Button();
-            this.status = new System.Windows.Forms.ComboBox();
+            this.status_combo = new System.Windows.Forms.ComboBox();
             this.returnDate = new System.Windows.Forms.Label();
             this.departureDate = new System.Windows.Forms.Label();
             this.destination = new System.Windows.Forms.Label();
@@ -52,50 +52,50 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.remarks = new System.Windows.Forms.RichTextBox();
+            this.remarks_input = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.price = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panel
             // 
-            this.panel1.Controls.Add(this.price);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.remarks);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.btnReturn);
-            this.panel1.Controls.Add(this.status);
-            this.panel1.Controls.Add(this.returnDate);
-            this.panel1.Controls.Add(this.departureDate);
-            this.panel1.Controls.Add(this.destination);
-            this.panel1.Controls.Add(this.busType);
-            this.panel1.Controls.Add(this.contactNum);
-            this.panel1.Controls.Add(this.email);
-            this.panel1.Controls.Add(this.btnConfirm);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.fullName);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(562, 569);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel.Controls.Add(this.price);
+            this.panel.Controls.Add(this.label8);
+            this.panel.Controls.Add(this.label4);
+            this.panel.Controls.Add(this.remarks_input);
+            this.panel.Controls.Add(this.label3);
+            this.panel.Controls.Add(this.btnReturn);
+            this.panel.Controls.Add(this.status_combo);
+            this.panel.Controls.Add(this.returnDate);
+            this.panel.Controls.Add(this.departureDate);
+            this.panel.Controls.Add(this.destination);
+            this.panel.Controls.Add(this.busType);
+            this.panel.Controls.Add(this.contactNum);
+            this.panel.Controls.Add(this.email);
+            this.panel.Controls.Add(this.btnConfirm);
+            this.panel.Controls.Add(this.label18);
+            this.panel.Controls.Add(this.label16);
+            this.panel.Controls.Add(this.label11);
+            this.panel.Controls.Add(this.label9);
+            this.panel.Controls.Add(this.label7);
+            this.panel.Controls.Add(this.label5);
+            this.panel.Controls.Add(this.fullName);
+            this.panel.Controls.Add(this.label1);
+            this.panel.Controls.Add(this.pictureBox1);
+            this.panel.Controls.Add(this.label2);
+            this.panel.Controls.Add(this.pictureBox2);
+            this.panel.Controls.Add(this.label12);
+            this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel.Location = new System.Drawing.Point(0, 0);
+            this.panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(562, 569);
+            this.panel.TabIndex = 0;
+            this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnReturn
             // 
@@ -114,22 +114,22 @@
             this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click_1);
             // 
-            // status
+            // status_combo
             // 
-            this.status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.status.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status.ForeColor = System.Drawing.Color.DimGray;
-            this.status.FormattingEnabled = true;
-            this.status.Items.AddRange(new object[] {
+            this.status_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.status_combo.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_combo.ForeColor = System.Drawing.Color.DimGray;
+            this.status_combo.FormattingEnabled = true;
+            this.status_combo.Items.AddRange(new object[] {
             "Approved",
             "Paid",
             "Pending",
             "Rejected"});
-            this.status.Location = new System.Drawing.Point(289, 346);
-            this.status.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(246, 27);
-            this.status.TabIndex = 129;
+            this.status_combo.Location = new System.Drawing.Point(289, 346);
+            this.status_combo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.status_combo.Name = "status_combo";
+            this.status_combo.Size = new System.Drawing.Size(246, 27);
+            this.status_combo.TabIndex = 129;
             // 
             // returnDate
             // 
@@ -346,14 +346,14 @@
             this.label3.TabIndex = 131;
             this.label3.Text = "Status";
             // 
-            // remarks
+            // remarks_input
             // 
-            this.remarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.remarks.Location = new System.Drawing.Point(289, 405);
-            this.remarks.Name = "remarks";
-            this.remarks.Size = new System.Drawing.Size(245, 66);
-            this.remarks.TabIndex = 132;
-            this.remarks.Text = "";
+            this.remarks_input.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remarks_input.Location = new System.Drawing.Point(289, 405);
+            this.remarks_input.Name = "remarks_input";
+            this.remarks_input.Size = new System.Drawing.Size(245, 66);
+            this.remarks_input.TabIndex = 132;
+            this.remarks_input.Text = "";
             // 
             // label4
             // 
@@ -389,12 +389,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "viewBooking";
             this.Size = new System.Drawing.Size(562, 569);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -403,9 +403,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Button btnReturn;
-        private System.Windows.Forms.ComboBox status;
+        private System.Windows.Forms.ComboBox status_combo;
         private System.Windows.Forms.Label returnDate;
         private System.Windows.Forms.Label departureDate;
         private System.Windows.Forms.Label destination;
@@ -426,7 +426,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox remarks;
+        private System.Windows.Forms.RichTextBox remarks_input;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label price;
         private System.Windows.Forms.Label label8;
