@@ -182,6 +182,7 @@
     <Compile Include="admincontrols\viewBooking.Designer.cs">
       <DependentUpon>viewBooking.cs</DependentUpon>
     </Compile>
+    <Compile Include="models\UserNotificationModel.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="styles\tableStyles.cs" />
     <Compile Include="windows forms\adminDashboard.cs">

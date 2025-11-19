@@ -40,7 +40,6 @@ namespace LoginForm.admincontrols
                     departureDate.Text = info.Departure;
                     price.Text = info.Price.ToString();
                     status.Text = info.Status;
-
                 }
             }
             catch (Exception ex)

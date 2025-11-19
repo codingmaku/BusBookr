@@ -121,7 +121,8 @@
             this.status.ForeColor = System.Drawing.Color.DimGray;
             this.status.FormattingEnabled = true;
             this.status.Items.AddRange(new object[] {
-            "Verified",
+            "Approved",
+            "Paid",
             "Pending",
             "Rejected"});
             this.status.Location = new System.Drawing.Point(289, 346);
