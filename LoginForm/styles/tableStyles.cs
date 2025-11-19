@@ -12,6 +12,7 @@ namespace LoginForm.styles
     {
         public static void Tables(DataGridView user_table)
         {
+            user_table.AllowUserToAddRows = false;   // ← Prevent the blank row
 
             user_table.Dock = DockStyle.Fill;
             user_table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -37,6 +38,7 @@ namespace LoginForm.styles
             user_table.DefaultCellStyle.Font = new Font("Nirmala UI", 10);
             user_table.DefaultCellStyle.SelectionBackColor = Color.White;
             user_table.DefaultCellStyle.SelectionForeColor = Color.Black;
+
             user_table.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             user_table.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
             user_table.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(248, 248, 248);
@@ -46,5 +48,6 @@ namespace LoginForm.styles
 
             user_table.DefaultCellStyle.Padding = new Padding(6, 6, 6, 6);
         }
+
     }
 }

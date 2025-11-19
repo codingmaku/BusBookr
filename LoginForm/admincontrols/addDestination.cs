@@ -57,7 +57,7 @@ namespace LoginForm.admincontrols
 
                 if (result == "OK")
                 {
-                    origin_admin.Clear();
+                    //origin_admin.Clear();
                     destination_admin.Clear();
                     coasterBus_admin.Clear();
                     touristBus_admin.Clear();

@@ -10,6 +10,7 @@ namespace LoginForm
     {
         public static string UserId { get; set; }
         public static string UserEmail { get; set; }
+        public static string CurrentAdminSelected { get; set; }
 
     }
 }

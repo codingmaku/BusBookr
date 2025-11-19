@@ -1,4 +1,6 @@
 ﻿using LoginForm.admincontrols;
+using LoginForm.services;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,13 +24,34 @@ namespace LoginForm
         public adminDashboard()
         {
             InitializeComponent();
+            CheckIfSuperAdminOrAdmin();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private async void CheckIfSuperAdminOrAdmin()
         {
+            try
+            {
+                var admin = await MongoDbServices.AdminAccount
+                    .Find(x => x.Email == Session.UserEmail)
+                    .FirstOrDefaultAsync();
+                if (admin != null)
+                {
+                    if (admin.Role == "Super Admin")
+                    {
+                        btnManage.Visible = true;
+                    }
+                    else
+                    {
+                        btnManage.Visible = false;
+                    }
+                }
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error checking admin role: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             panel.Controls.Clear();
@@ -50,11 +73,6 @@ namespace LoginForm
             panel.Controls.Clear();
             panel.Controls.Add(addDstn);
             addDstn.Dock = DockStyle.Fill;
-        }
-
-        private void panel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnDestination_Click_1(object sender, EventArgs e)
@@ -89,6 +107,16 @@ namespace LoginForm
             panel.Controls.Clear();
             panel.Controls.Add(mngAdmin);
             mngAdmin.Dock = DockStyle.Fill;
+        }
+
+        private void panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

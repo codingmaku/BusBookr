@@ -19,6 +19,9 @@ namespace LoginForm.usercontrols
         {
             InitializeComponent();
             PutPredefinedData();
+            LoadDestinations();
+
+            destination_user.Enabled = false;
         }
 
         private void btnViewBus_Click(object sender, EventArgs e)
@@ -70,7 +73,7 @@ namespace LoginForm.usercontrols
                 {
                     typeofbus_user.SelectedIndex = -1;
                     destination_user.SelectedIndex = -1;
-                    price_user.Text = " ";
+                    price_user.Text = "";
                     departureDate_user.Text = "";
                     returnDate_user.Text = "";
                 }
@@ -107,6 +110,75 @@ namespace LoginForm.usercontrols
             {
                 MessageBox.Show($"Error occurred while loading user profile: {e.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private async void LoadDestinations()
+        {
+            try
+            {
+
+                var routes = await MongoDbServices.BusRoute
+                .Find(_ => true)
+                .ToListAsync();
+                if (routes != null && routes.Count > 0)
+                {
+                    var uniqueDestinations = routes
+                    .Select(x => x.Destination)
+                    .Distinct()
+                    .ToList();
+                    destination_user.Items.Clear();
+                    foreach (var des in uniqueDestinations) { 
+                        destination_user.Items.Add(des);
+                    }
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Destinations not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Error occurred while loading destinations: {e.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void typeofbus_user_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            destination_user.Enabled = true;
+
+        }
+
+        private async void destination_user_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (typeofbus_user.SelectedIndex == -1 && destination_user.SelectedIndex == -1) {
+                price_user.Text = "";
+                return;
+            }
+
+            string busSelected = typeofbus_user.SelectedItem.ToString();    
+            string destinationSelected = destination_user.SelectedItem.ToString();
+
+            if (busSelected == "Coaster Bus") {
+                var route = await MongoDbServices.BusRoute
+                    .Find(x => x.Destination == destinationSelected)
+                    .FirstOrDefaultAsync();
+
+                if (route != null) { 
+                    price_user.Text = route.CoasterBusPrice.ToString();
+                }
+            }
+            else if (busSelected == "Tourist Bus") {
+                var route = await MongoDbServices.BusRoute
+                    .Find(x => x.Destination == destinationSelected)
+                    .FirstOrDefaultAsync();
+                if (route != null)
+                {
+                    price_user.Text = route.TouristBusPrice.ToString();
+                }
+            }
+
         }
     }
 }

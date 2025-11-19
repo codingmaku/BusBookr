@@ -50,9 +50,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bookman Old Style", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label2.Location = new System.Drawing.Point(170, 19);
+            this.label2.Location = new System.Drawing.Point(128, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(420, 47);
+            this.label2.Size = new System.Drawing.Size(337, 38);
             this.label2.TabIndex = 41;
             this.label2.Text = "ADD DESTINATION";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -61,10 +62,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(449, 373);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(337, 303);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(138, 23);
+            this.label4.Size = new System.Drawing.Size(115, 19);
             this.label4.TabIndex = 90;
             this.label4.Text = "Tourist Bus Rate";
             // 
@@ -72,30 +72,27 @@
             // 
             this.touristBus_admin.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.touristBus_admin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
-            this.touristBus_admin.Location = new System.Drawing.Point(449, 400);
-            this.touristBus_admin.Margin = new System.Windows.Forms.Padding(4);
+            this.touristBus_admin.Location = new System.Drawing.Point(337, 325);
             this.touristBus_admin.Name = "touristBus_admin";
-            this.touristBus_admin.Size = new System.Drawing.Size(260, 31);
+            this.touristBus_admin.Size = new System.Drawing.Size(196, 27);
             this.touristBus_admin.TabIndex = 89;
             // 
             // coasterBus_admin
             // 
             this.coasterBus_admin.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coasterBus_admin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
-            this.coasterBus_admin.Location = new System.Drawing.Point(449, 313);
-            this.coasterBus_admin.Margin = new System.Windows.Forms.Padding(4);
+            this.coasterBus_admin.Location = new System.Drawing.Point(337, 254);
             this.coasterBus_admin.Name = "coasterBus_admin";
-            this.coasterBus_admin.Size = new System.Drawing.Size(260, 31);
+            this.coasterBus_admin.Size = new System.Drawing.Size(196, 27);
             this.coasterBus_admin.TabIndex = 88;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(449, 286);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(337, 232);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 23);
+            this.label3.Size = new System.Drawing.Size(121, 19);
             this.label3.TabIndex = 87;
             this.label3.Text = "Coaster Bus Rate";
             // 
@@ -103,30 +100,29 @@
             // 
             this.destination_admin.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.destination_admin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
-            this.destination_admin.Location = new System.Drawing.Point(449, 230);
-            this.destination_admin.Margin = new System.Windows.Forms.Padding(4);
+            this.destination_admin.Location = new System.Drawing.Point(337, 187);
             this.destination_admin.Name = "destination_admin";
-            this.destination_admin.Size = new System.Drawing.Size(260, 31);
+            this.destination_admin.Size = new System.Drawing.Size(196, 27);
             this.destination_admin.TabIndex = 86;
             // 
             // origin_admin
             // 
+            this.origin_admin.Enabled = false;
             this.origin_admin.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.origin_admin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
-            this.origin_admin.Location = new System.Drawing.Point(449, 152);
-            this.origin_admin.Margin = new System.Windows.Forms.Padding(4);
+            this.origin_admin.Location = new System.Drawing.Point(337, 124);
             this.origin_admin.Name = "origin_admin";
-            this.origin_admin.Size = new System.Drawing.Size(260, 31);
+            this.origin_admin.Size = new System.Drawing.Size(196, 27);
             this.origin_admin.TabIndex = 85;
+            this.origin_admin.Text = "Bacoor";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(450, 125);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(338, 102);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 23);
+            this.label1.Size = new System.Drawing.Size(51, 19);
             this.label1.TabIndex = 84;
             this.label1.Text = "Origin";
             // 
@@ -134,10 +130,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(450, 203);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(338, 165);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 23);
+            this.label5.Size = new System.Drawing.Size(84, 19);
             this.label5.TabIndex = 91;
             this.label5.Text = "Destination";
             // 
@@ -146,7 +141,7 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(750, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(562, 25);
             this.toolStrip1.TabIndex = 92;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -159,10 +154,9 @@
             this.btnTickets.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnTickets.ForeColor = System.Drawing.Color.OrangeRed;
             this.btnTickets.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnTickets.Location = new System.Drawing.Point(449, 469);
-            this.btnTickets.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTickets.Location = new System.Drawing.Point(337, 381);
             this.btnTickets.Name = "btnTickets";
-            this.btnTickets.Size = new System.Drawing.Size(260, 50);
+            this.btnTickets.Size = new System.Drawing.Size(195, 41);
             this.btnTickets.TabIndex = 93;
             this.btnTickets.Text = "SUBMIT";
             this.btnTickets.UseVisualStyleBackColor = false;
@@ -171,17 +165,19 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(-19, -19);
+            this.comboBox1.Location = new System.Drawing.Point(-14, -15);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.Size = new System.Drawing.Size(92, 21);
             this.comboBox1.TabIndex = 94;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 113);
+            this.pictureBox1.Location = new System.Drawing.Point(9, 92);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(402, 434);
+            this.pictureBox1.Size = new System.Drawing.Size(302, 353);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 96;
             this.pictureBox1.TabStop = false;
@@ -189,7 +185,7 @@
             // 
             // addDestination
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBox1);
@@ -204,8 +200,9 @@
             this.Controls.Add(this.origin_admin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "addDestination";
-            this.Size = new System.Drawing.Size(750, 700);
+            this.Size = new System.Drawing.Size(562, 569);
             this.Load += new System.EventHandler(this.userStaff_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

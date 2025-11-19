@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminDashboard));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnManage = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -41,7 +42,6 @@
             this.btnBooking = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
-            this.btnManage = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,6 +64,17 @@
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // btnManage
+            // 
+            this.btnManage.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnManage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnManage.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.btnManage, "btnManage");
+            this.btnManage.ForeColor = System.Drawing.Color.White;
+            this.btnManage.Name = "btnManage";
+            this.btnManage.UseVisualStyleBackColor = false;
+            this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
             // 
             // label3
             // 
@@ -151,17 +162,6 @@
             this.panel.ForeColor = System.Drawing.Color.Black;
             this.panel.Name = "panel";
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
-            // 
-            // btnManage
-            // 
-            this.btnManage.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnManage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManage.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.btnManage, "btnManage");
-            this.btnManage.ForeColor = System.Drawing.Color.White;
-            this.btnManage.Name = "btnManage";
-            this.btnManage.UseVisualStyleBackColor = false;
-            this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
             // 
             // adminDashboard
             // 
