@@ -1,0 +1,136 @@
+﻿namespace LoginForm.usercontrols
+{
+    partial class userBooking
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(userBooking));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.viewBooking = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewBooking)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(550, 600);
+            this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 24F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label2.Location = new System.Drawing.Point(108, 439);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(275, 47);
+            this.label2.TabIndex = 83;
+            this.label2.Text = "BUS BOOKR";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBox2.Location = new System.Drawing.Point(389, 436);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 82;
+            this.pictureBox2.TabStop = false;
+            // 
+            // viewBooking
+            // 
+            this.viewBooking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.viewBooking.Location = new System.Drawing.Point(3, 3);
+            this.viewBooking.Name = "viewBooking";
+            this.viewBooking.RowHeadersWidth = 51;
+            this.viewBooking.RowTemplate.Height = 24;
+            this.viewBooking.Size = new System.Drawing.Size(524, 368);
+            this.viewBooking.TabIndex = 81;
+            this.viewBooking.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(3, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(167, 32);
+            this.label5.TabIndex = 80;
+            this.label5.Text = "User Booking";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.viewBooking);
+            this.panel2.Location = new System.Drawing.Point(9, 56);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(530, 374);
+            this.panel2.TabIndex = 84;
+            // 
+            // userBooking
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel1);
+            this.Name = "userBooking";
+            this.Size = new System.Drawing.Size(550, 600);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewBooking)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView viewBooking;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel2;
+    }
+}
