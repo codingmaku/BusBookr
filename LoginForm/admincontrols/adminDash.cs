@@ -26,19 +26,18 @@ namespace LoginForm.admincontrols
 
 private async void LoadStats()
     {
-        // Define Philippine peso culture
+
         CultureInfo php = new CultureInfo("en-PH");
 
-        // Count pending jobs
         var businessActiveJobs = await MongoDbServices.BusBooking
             .CountDocumentsAsync(x => x.Status == "Pending");
         pendingReq.Text = businessActiveJobs.ToString();
 
-        // Today's range
+
         var today = DateTime.Today;
         var tomorrow = today.AddDays(1);
 
-        // Revenue for today
+
         var paidToday = await MongoDbServices.BusBooking
             .Find(x => x.Status == "Paid" && x.CreatedAt >= today && x.CreatedAt < tomorrow)
             .ToListAsync();
@@ -46,7 +45,7 @@ private async void LoadStats()
         decimal totalTodayRevenue = paidToday.Sum(x => Convert.ToDecimal(x.Price));
         revToday.Text = totalTodayRevenue.ToString("C", php); // ₱ formatting
 
-        // Overall revenue
+
         var allPaid = await MongoDbServices.BusBooking
             .Find(x => x.Status == "Paid")
             .ToListAsync();
