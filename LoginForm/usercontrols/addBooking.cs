@@ -22,70 +22,10 @@ namespace LoginForm.usercontrols
             LoadDestinations();
 
             destination_user.Enabled = false;
+            returnDate_user.Enabled = false;
+            departureDate_user.Enabled = false;
         }
 
-        private void btnViewBus_Click(object sender, EventArgs e)
-        {
-            new viewRatea().Show();
-
-        }
-
-        private void userBooking_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private async void btnBookNow_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(fullName_user.Text)
-                || string.IsNullOrEmpty(email_user.Text)
-                || string.IsNullOrEmpty(phoneNumber_user.Text)
-                || string.IsNullOrEmpty(typeofbus_user.Text)
-                || string.IsNullOrEmpty(price_user.Text)
-                || string.IsNullOrEmpty(destination_user.Text)
-                || string.IsNullOrEmpty(departureDate_user.Text)
-                || string.IsNullOrEmpty(returnDate_user.Text)) 
-            {
-                MessageBox.Show("Please complete the form before booking", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-                bool response = await MongoDbServices.InsertBusBookingAsync(
-                Session.UserId,
-                fullName_user.Text,
-                email_user.Text, 
-                phoneNumber_user.Text, 
-                typeofbus_user.Text, 
-                destination_user.Text, 
-                int.Parse(price_user.Text), 
-                departureDate_user.Text, 
-                returnDate_user.Text); 
-            
-            if (response)
-            {
-                string result = MessageBox.Show(
-                    "Bus successfully booked and ready for review",
-                    "Success",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                ).ToString();
-
-                if (result == "OK")
-                {
-                    typeofbus_user.SelectedIndex = -1;
-                    destination_user.SelectedIndex = -1;
-                    price_user.Text = "";
-                    departureDate_user.Text = "";
-                    returnDate_user.Text = "";
-                }
-            }
-            else
-            {
-                MessageBox.Show("Failed to add booking. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-
-        }
 
         private async void PutPredefinedData()
         {
@@ -144,32 +84,90 @@ namespace LoginForm.usercontrols
 
         }
 
-        private void typeofbus_user_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            destination_user.Enabled = true;
 
-        }
 
-        private async void destination_user_SelectedIndexChanged(object sender, EventArgs e)
+        private async void btnBookNow_Click_1(object sender, EventArgs e)
         {
-            if (typeofbus_user.SelectedIndex == -1 && destination_user.SelectedIndex == -1) {
-                price_user.Text = "";
+            if (string.IsNullOrEmpty(fullName_user.Text)
+               || string.IsNullOrEmpty(email_user.Text)
+               || string.IsNullOrEmpty(phoneNumber_user.Text)
+               || string.IsNullOrEmpty(typeofbus_user.Text)
+               || string.IsNullOrEmpty(fprice_user.Text)
+               || string.IsNullOrEmpty(destination_user.Text)
+               || string.IsNullOrEmpty(departureDate_user.Text)
+               || string.IsNullOrEmpty(returnDate_user.Text))
+            {
+                MessageBox.Show("Please complete the form before booking", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            bool response = await MongoDbServices.InsertBusBookingAsync(
+            Session.UserId,
+            fullName_user.Text,
+            email_user.Text,
+            phoneNumber_user.Text,
+            typeofbus_user.Text,
+            destination_user.Text,
+            int.Parse(fprice_user.Text),
+            departureDate_user.Text,
+            returnDate_user.Text);
 
-            string busSelected = typeofbus_user.SelectedItem.ToString();    
+            if (response)
+            {
+                string result = MessageBox.Show(
+                    "Bus successfully booked and ready for review",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                ).ToString();
+
+                if (result == "OK")
+                {
+                    usercontrols.addBooking addBook = new usercontrols.addBooking();
+                    panel.Controls.Clear();
+                    panel.Controls.Add(addBook);
+                    addBook.Dock = DockStyle.Fill;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Failed to add booking. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnViewBus_Click_1(object sender, EventArgs e)
+        {
+            new viewRatea().Show();
+        }
+
+        private void typeofbus_user_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            destination_user.Enabled = true;
+        }
+
+        private async void destination_user_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (typeofbus_user.SelectedIndex == -1 && destination_user.SelectedIndex == -1)
+            {
+                fprice_user.Text = "";
+                return;
+            }
+            departureDate_user.Enabled = true;
+            string busSelected = typeofbus_user.SelectedItem.ToString();
             string destinationSelected = destination_user.SelectedItem.ToString();
 
-            if (busSelected == "Coaster Bus") {
+            if (busSelected == "Coaster Bus")
+            {
                 var route = await MongoDbServices.BusRoute
                     .Find(x => x.Destination == destinationSelected)
                     .FirstOrDefaultAsync();
 
-                if (route != null) { 
+                if (route != null)
+                {
                     price_user.Text = route.CoasterBusPrice.ToString();
                 }
             }
-            else if (busSelected == "Tourist Bus") {
+            else if (busSelected == "Tourist Bus")
+            {
                 var route = await MongoDbServices.BusRoute
                     .Find(x => x.Destination == destinationSelected)
                     .FirstOrDefaultAsync();
@@ -177,7 +175,31 @@ namespace LoginForm.usercontrols
                 {
                     price_user.Text = route.TouristBusPrice.ToString();
                 }
+
             }
+
+        }
+
+        private void returnDate_user_ValueChanged_1(object sender, EventArgs e)
+        {
+            DateTime depDate = DateTime.Parse(departureDate_user.Text);
+            DateTime retDate = DateTime.Parse(returnDate_user.Text);
+
+            // Calculate days (minimum 1 day)
+            int totalDays = (retDate - depDate).Days;
+            if (totalDays < 1) totalDays = 1;
+
+            // Convert entered price (per day price)
+            int pricePerDay = int.Parse(price_user.Text);
+
+            // Final price
+            int finalPrice = totalDays * pricePerDay;
+
+            fprice_user.Text = finalPrice.ToString();
+        }
+        private void departureDate_user_ValueChanged_1(object sender, EventArgs e)
+        {
+            returnDate_user.Enabled = true;
 
         }
     }

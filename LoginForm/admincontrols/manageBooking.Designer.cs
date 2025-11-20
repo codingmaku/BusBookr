@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.manageBooks = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.status_combo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,13 +45,13 @@
             // 
             this.panel.Controls.Add(this.panel1);
             this.panel.Controls.Add(this.label1);
-            this.panel.Controls.Add(this.comboBox1);
+            this.panel.Controls.Add(this.status_combo);
             this.panel.Controls.Add(this.label4);
             this.panel.Controls.Add(this.textBox1);
             this.panel.Controls.Add(this.label3);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
-            this.panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel.Margin = new System.Windows.Forms.Padding(2);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(562, 569);
             this.panel.TabIndex = 0;
@@ -61,7 +61,7 @@
             // 
             this.panel1.Controls.Add(this.manageBooks);
             this.panel1.Location = new System.Drawing.Point(18, 119);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(530, 375);
             this.panel1.TabIndex = 101;
@@ -72,7 +72,7 @@
             this.manageBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.manageBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.manageBooks.Location = new System.Drawing.Point(0, 0);
-            this.manageBooks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.manageBooks.Margin = new System.Windows.Forms.Padding(2);
             this.manageBooks.Name = "manageBooks";
             this.manageBooks.RowHeadersWidth = 51;
             this.manageBooks.RowTemplate.Height = 24;
@@ -94,19 +94,22 @@
             this.label1.Text = "MANAGE BOOKING";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox1
+            // status_combo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Verified",
+            this.status_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.status_combo.FormattingEnabled = true;
+            this.status_combo.Items.AddRange(new object[] {
+            "Approved",
             "Pending",
-            "Rejected"});
-            this.comboBox1.Location = new System.Drawing.Point(413, 75);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(76, 21);
-            this.comboBox1.TabIndex = 38;
-            this.comboBox1.Text = "Verified";
+            "Paid",
+            "Rejected",
+            "All"});
+            this.status_combo.Location = new System.Drawing.Point(413, 75);
+            this.status_combo.Margin = new System.Windows.Forms.Padding(2);
+            this.status_combo.Name = "status_combo";
+            this.status_combo.Size = new System.Drawing.Size(76, 21);
+            this.status_combo.TabIndex = 38;
+            this.status_combo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -122,7 +125,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(86, 75);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(162, 20);
             this.textBox1.TabIndex = 36;
@@ -143,7 +146,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "manageBooking";
             this.Size = new System.Drawing.Size(562, 569);
             this.panel.ResumeLayout(false);
@@ -159,7 +162,7 @@
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView manageBooks;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox status_combo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;

@@ -17,19 +17,19 @@ namespace LoginForm.admincontrols
     {
 
         admincontrols.manageBooking mngBooking = new admincontrols.manageBooking();
-        public viewBooking(string BookerEmail)
+        public viewBooking(string BookerId, string BookerEmail)
         {
             InitializeComponent();
-            LoadBookingInfo(BookerEmail);
+            LoadBookingInfo(BookerId, BookerEmail);
         }
 
 
-        private async void LoadBookingInfo(string bookrEmail)
+        private async void LoadBookingInfo(string bookrId, string bookrEmail)
         {
             try
             {
                 var info = await MongoDbServices.BusBooking
-                    .Find(x => x.Email == bookrEmail)
+                    .Find(x => x.Email == bookrEmail && x.Id == bookrId)
                     .FirstOrDefaultAsync();
                 if (info != null) { 
                     fullName.Text = info.FullName;
@@ -69,7 +69,7 @@ namespace LoginForm.admincontrols
             }
 
             string status = status_combo.Text.ToString();
-            string email = Session.CurrentBookerSelected;
+            string email = Session.CurrentBookerSelectedEmail;
 
             var booking = await MongoDbServices.BusBooking
                 .Find(x => x.Email == email)
