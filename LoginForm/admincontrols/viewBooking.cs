@@ -128,17 +128,32 @@ namespace LoginForm.admincontrols
             await MongoDbServices.UserNotification.InsertOneAsync(notif);
 
             // Update booking status
-            var filter = Builders<BusBookingModel>.Filter.Eq(x => x.Email, email);
-            var update = Builders<BusBookingModel>.Update.Set(x => x.Status, status);
+            var getBooking = Builders<BusBookingModel>.Filter.Eq(x => x.Id, Session.CurrentBookerSelectedId);
 
-            await MongoDbServices.BusBooking.UpdateOneAsync(filter, update);
+            if (getBooking != null)
+            {
+                // Update the status field
+                var updateStatus = Builders<BusBookingModel>.Update.Set(x => x.Status, status);
 
-            MessageBox.Show($"Bus booking for {booking.FullName} has been {status}.",
-                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var result = await MongoDbServices.BusBooking.UpdateOneAsync(getBooking, updateStatus);
 
-            panel.Controls.Clear();
-            panel.Controls.Add(new manageBooking());
-            new manageBooking().Dock = DockStyle.Fill;
+                // Optional: check if it was updated
+                if (result.ModifiedCount > 0)
+                {
+                    MessageBox.Show($"Bus booking status has been updated to {status}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    admincontrols.manageBooking manageBooking = new admincontrols.manageBooking();
+                    panel.Controls.Clear();
+                    panel.Controls.Add(manageBooking);
+                    manageBooking.Dock = DockStyle.Fill;
+                }
+                else
+                {
+                    MessageBox.Show("Status was not updated. Check if the booking exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
 
         }
 
